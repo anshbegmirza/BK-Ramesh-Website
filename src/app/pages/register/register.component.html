@@ -1,0 +1,120 @@
+<section class="page-hero vbl-section-alt">
+  <div class="vbl-container text-center" data-aos="fade-up">
+    <h1 class="page-hero__title">Register on Zoom</h1>
+    <p class="page-hero__subtitle text-muted-vbl">
+      Reserve your spot for the next workshop or coaching session.
+    </p>
+    <div class="divider-accent mx-auto"></div>
+  </div>
+</section>
+
+<section class="vbl-section">
+  <div class="vbl-container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7" data-aos="fade-up">
+        @if (submitSuccess) {
+          <div class="alert alert-success register-alert" role="alert">
+            <i class="bi bi-check-circle me-2" aria-hidden="true"></i>
+            Thank you! Your registration has been received. We will contact you shortly with Zoom details.
+          </div>
+        }
+
+        <form class="register-form vbl-card" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name *</label>
+            <input
+              id="name"
+              type="text"
+              class="form-control"
+              formControlName="name"
+              [class.is-invalid]="submitted && form.controls.name.invalid"
+              autocomplete="name"
+            />
+            @if (submitted && form.controls.name.invalid) {
+              <div class="invalid-feedback">Please enter your name.</div>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email *</label>
+            <input
+              id="email"
+              type="email"
+              class="form-control"
+              formControlName="email"
+              [class.is-invalid]="submitted && form.controls.email.invalid"
+              autocomplete="email"
+            />
+            @if (submitted && form.controls.email.invalid) {
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone *</label>
+            <input
+              id="phone"
+              type="tel"
+              class="form-control"
+              formControlName="phone"
+              [class.is-invalid]="submitted && form.controls.phone.invalid"
+              autocomplete="tel"
+            />
+            @if (submitted && form.controls.phone.invalid) {
+              <div class="invalid-feedback">Please enter a valid phone number.</div>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label for="workshop" class="form-label">Workshop Selection *</label>
+            <select
+              id="workshop"
+              class="form-select"
+              formControlName="workshop"
+              [class.is-invalid]="submitted && form.controls.workshop.invalid"
+            >
+              <option value="" disabled>Select a workshop</option>
+              @for (opt of workshopOptions; track opt.value) {
+                <option [value]="opt.value">{{ opt.label }}</option>
+              }
+            </select>
+            @if (submitted && form.controls.workshop.invalid) {
+              <div class="invalid-feedback">Please select a workshop.</div>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label for="batch" class="form-label">Preferred Batch *</label>
+            <select
+              id="batch"
+              class="form-select"
+              formControlName="batch"
+              [class.is-invalid]="submitted && form.controls.batch.invalid"
+            >
+              <option value="" disabled>Select a batch</option>
+              @for (opt of batchOptions; track opt.value) {
+                <option [value]="opt.value">{{ opt.label }}</option>
+              }
+            </select>
+            @if (submitted && form.controls.batch.invalid) {
+              <div class="invalid-feedback">Please select a preferred batch.</div>
+            }
+          </div>
+
+          <div class="mb-4">
+            <label for="message" class="form-label">Additional Message</label>
+            <textarea
+              id="message"
+              class="form-control"
+              formControlName="message"
+              rows="3"
+              placeholder="Any questions or special requirements?"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn vbl-btn-accent w-100">Submit Registration</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

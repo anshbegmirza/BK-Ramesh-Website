@@ -1,0 +1,67 @@
+.site-footer {
+  background: var(--vbl-surface-alt);
+  border-top: 1px solid var(--vbl-border);
+  padding-block: 3rem 1.5rem;
+  margin-top: auto;
+
+  &__title {
+    font-family: var(--vbl-font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  &__tagline {
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  &__subtitle {
+    font-size: 0.85rem;
+  }
+
+  &__heading {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--vbl-accent);
+    margin-bottom: 1rem;
+  }
+
+  &__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      color: var(--vbl-text-muted);
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      min-height: 32px;
+
+      &:hover {
+        color: var(--vbl-primary);
+      }
+    }
+  }
+
+  &__bottom {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--vbl-border);
+    text-align: center;
+
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--vbl-text-muted);
+    }
+  }
+}

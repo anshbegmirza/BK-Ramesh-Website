@@ -1,0 +1,72 @@
+@use "theme-variables" as vbl;
+
+/*
+ * Theme CSS custom properties — toggled via data-theme on <html>
+ * Override Bootstrap tokens where applicable.
+ */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --vbl-primary: #{vbl.$vbl-primary};
+  --vbl-primary-dark: #{vbl.$vbl-primary-dark};
+  --vbl-primary-light: #{vbl.$vbl-primary-light};
+  --vbl-accent: #{vbl.$vbl-accent};
+  --vbl-accent-dark: #{vbl.$vbl-accent-dark};
+  --vbl-accent-light: #{vbl.$vbl-accent-light};
+
+  --vbl-bg: #{vbl.$vbl-light-bg};
+  --vbl-surface: #{vbl.$vbl-light-surface};
+  --vbl-surface-alt: #{vbl.$vbl-light-surface-alt};
+  --vbl-text: #{vbl.$vbl-light-text};
+  --vbl-text-body: #{vbl.$vbl-light-text-body};
+  --vbl-text-muted: #{vbl.$vbl-light-text-muted};
+  --vbl-border: #{vbl.$vbl-light-border};
+  --vbl-shadow: #{vbl.$vbl-light-shadow};
+
+  --vbl-success: #{vbl.$vbl-success};
+  --vbl-warning: #{vbl.$vbl-warning};
+  --vbl-danger: #{vbl.$vbl-danger};
+
+  --vbl-font-heading: #{vbl.$vbl-font-heading};
+  --vbl-font-body: #{vbl.$vbl-font-body};
+
+  --vbl-header-height: #{vbl.$vbl-header-height};
+  --vbl-max-content-width: #{vbl.$vbl-max-content-width};
+  --vbl-radius-sm: #{vbl.$vbl-radius-sm};
+  --vbl-radius-md: #{vbl.$vbl-radius-md};
+  --vbl-radius-lg: #{vbl.$vbl-radius-lg};
+  --vbl-radius-pill: #{vbl.$vbl-radius-pill};
+
+  --bs-body-bg: var(--vbl-bg);
+  --bs-body-color: var(--vbl-text);
+  --bs-primary: var(--vbl-primary);
+  --bs-primary-rgb: 123, 45, 58;
+  --bs-secondary: var(--vbl-text-muted);
+  --bs-border-color: var(--vbl-border);
+  --bs-link-color: var(--vbl-primary);
+  --bs-link-hover-color: var(--vbl-primary-dark);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --vbl-bg: #{vbl.$vbl-dark-bg};
+  --vbl-surface: #{vbl.$vbl-dark-surface};
+  --vbl-surface-alt: #{vbl.$vbl-dark-surface-alt};
+  --vbl-text: #{vbl.$vbl-dark-text};
+  --vbl-text-body: #{vbl.$vbl-dark-text-body};
+  --vbl-text-muted: #{vbl.$vbl-dark-text-muted};
+  --vbl-border: #{vbl.$vbl-dark-border};
+  --vbl-shadow: #{vbl.$vbl-dark-shadow};
+
+  --bs-body-bg: var(--vbl-bg);
+  --bs-body-color: var(--vbl-text);
+  --bs-primary: #{vbl.$vbl-primary-light};
+  --bs-primary-rgb: 154, 61, 77;
+  --bs-secondary: var(--vbl-text-muted);
+  --bs-border-color: var(--vbl-border);
+  --bs-link-color: var(--vbl-accent-light);
+  --bs-link-hover-color: var(--vbl-accent);
+}

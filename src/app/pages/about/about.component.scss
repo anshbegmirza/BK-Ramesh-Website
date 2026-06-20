@@ -1,0 +1,102 @@
+.page-hero {
+  padding-block: 3rem;
+
+  &__title {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  &__subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 0;
+  }
+}
+
+.about {
+  &__photo {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    object-position: center top;
+    box-shadow: 0 8px 32px var(--vbl-shadow);
+  }
+
+  &__bio {
+    p {
+      margin-bottom: 1.25rem;
+    }
+  }
+}
+
+.timeline {
+  position: relative;
+  max-width: 720px;
+  margin-inline: auto;
+  padding-left: 2rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0.45rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--vbl-border);
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: 2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__marker {
+    position: absolute;
+    left: -1.65rem;
+    top: 1.25rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--vbl-accent);
+    border: 3px solid var(--vbl-surface-alt);
+  }
+
+  &__content {
+    padding: 1.5rem;
+  }
+
+  &__year {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--vbl-accent);
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0.35rem 0 0.75rem;
+  }
+}
+
+.focus-card {
+  padding: 1.5rem 1rem;
+
+  &__icon {
+    font-size: 1.75rem;
+    color: var(--vbl-accent);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  &__label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--vbl-text);
+  }
+}

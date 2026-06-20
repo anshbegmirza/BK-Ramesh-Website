@@ -1,0 +1,49 @@
+.page-hero {
+  padding-block: 3rem;
+
+  &__title {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  &__subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 0;
+  }
+}
+
+.register-form {
+  padding: 2rem;
+
+  .form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--vbl-text);
+  }
+
+  .form-control,
+  .form-select {
+    min-height: 48px;
+    border-color: var(--vbl-border);
+    background: var(--vbl-bg);
+    color: var(--vbl-text);
+    border-radius: var(--vbl-radius-sm);
+
+    &:focus {
+      border-color: var(--vbl-primary);
+      box-shadow: 0 0 0 0.2rem rgba(123, 45, 58, 0.15);
+    }
+  }
+}
+
+.register-alert {
+  border-radius: var(--vbl-radius-md);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 400px) {
+  .register-form {
+    padding: 1.25rem;
+  }
+}

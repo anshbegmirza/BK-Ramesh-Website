@@ -1,0 +1,60 @@
+.page-hero {
+  padding-block: 3rem;
+
+  &__title {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  &__subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 0;
+  }
+}
+
+.testimonial-card {
+  padding: 1.5rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__avatar {
+    object-fit: cover;
+    border: 2px solid var(--vbl-accent);
+  }
+
+  &__name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__program {
+    font-size: 0.8rem;
+  }
+
+  &__quote {
+    margin: 0;
+
+    p {
+      font-size: 0.95rem;
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--vbl-text-muted);
+      margin: 0;
+    }
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+    color: var(--vbl-accent);
+    opacity: 0.4;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+}

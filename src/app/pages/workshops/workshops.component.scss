@@ -1,0 +1,162 @@
+.page-hero {
+  padding-block: 3rem;
+
+  &__title {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  &__subtitle {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    margin-bottom: 0;
+  }
+}
+
+.workshops-feature {
+  padding: 1.5rem;
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
+
+  &__photo {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  &__label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--vbl-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  &__title {
+    font-size: clamp(1.375rem, 3vw, 1.75rem);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.accordion-item {
+  overflow: hidden;
+
+  &--featured {
+    border-color: var(--vbl-accent);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: none;
+    background: transparent;
+    color: var(--vbl-text);
+    text-align: left;
+    cursor: pointer;
+    min-height: 44px;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--vbl-radius-sm);
+    background: var(--vbl-surface-alt);
+    color: var(--vbl-accent);
+    flex-shrink: 0;
+  }
+
+  &__title {
+    flex: 1;
+    font-family: var(--vbl-font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  &__badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    background: var(--vbl-accent);
+    color: #2b2520;
+  }
+
+  &__chevron {
+    color: var(--vbl-text-muted);
+  }
+
+  &__body {
+    padding: 0 1.25rem 1.25rem;
+    border-top: 1px solid var(--vbl-border);
+  }
+
+  &__section {
+    margin-top: 1rem;
+
+    p {
+      margin: 0.35rem 0 0;
+      font-size: 0.9rem;
+      color: var(--vbl-text-muted);
+      line-height: 1.65;
+    }
+  }
+
+  &__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--vbl-primary);
+  }
+}
+
+.event-card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  &__details {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    flex: 1;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--vbl-text-muted);
+      margin-bottom: 0.5rem;
+
+      i {
+        color: var(--vbl-accent);
+        margin-top: 0.15rem;
+      }
+    }
+  }
+}

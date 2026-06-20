@@ -1,0 +1,135 @@
+<section class="page-hero vbl-section-alt">
+  <div class="vbl-container text-center" data-aos="fade-up">
+    <h1 class="page-hero__title">Workshops & Services</h1>
+    <p class="page-hero__subtitle lead-vbl mx-auto">
+      Problem → Process → Result — a clear path to transformation in every program.
+    </p>
+    <div class="divider-accent mx-auto"></div>
+  </div>
+</section>
+
+<section class="vbl-section pt-0">
+  <div class="vbl-container">
+    <div class="workshops-feature vbl-card" data-aos="fade-up">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-5 col-lg-4">
+          <img
+            [ngSrc]="site.images.nlpCoaching"
+            width="1024"
+            height="1024"
+            alt="BK Ramesh leading an NLP coaching workshop"
+            class="workshops-feature__photo rounded-3"
+          />
+        </div>
+        <div class="col-md-7 col-lg-8">
+          <span class="workshops-feature__label">Featured · NLP Coaching</span>
+          <h2 class="workshops-feature__title">Live Workshops That Create Real Change</h2>
+          <p class="lead-vbl mb-0">
+            Join interactive NLP sessions — online or in person — where proven techniques help you
+            release limiting patterns and build a stronger self-image.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="vbl-section pt-0">
+  <div class="vbl-container">
+    <app-section-heading
+      title="All Services"
+      subtitle="Each program is designed to address a specific challenge with proven NLP methods."
+    />
+
+    <!-- Desktop: card grid -->
+    <div class="d-none d-lg-block">
+      <div class="row g-4">
+        @for (service of services; track service.id) {
+          <div class="col-lg-6" [class.col-lg-12]="service.featured">
+            <app-service-card [service]="service" />
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Mobile/tablet: accordion -->
+    <div class="d-lg-none accordion-list">
+      @for (service of services; track service.id) {
+        <div
+          class="accordion-item vbl-card"
+          [class.accordion-item--featured]="service.featured"
+          [class.accordion-item--open]="expandedId === service.id"
+        >
+          <button
+            type="button"
+            class="accordion-item__header"
+            (click)="toggleAccordion(service)"
+            [attr.aria-expanded]="expandedId === service.id"
+          >
+            <span class="accordion-item__icon" aria-hidden="true">
+              <i [class]="service.icon"></i>
+            </span>
+            <span class="accordion-item__title">{{ service.name }}</span>
+            @if (service.featured) {
+              <span class="accordion-item__badge">Flagship</span>
+            }
+            <i class="bi accordion-item__chevron" [class.bi-chevron-up]="expandedId === service.id" [class.bi-chevron-down]="expandedId !== service.id" aria-hidden="true"></i>
+          </button>
+          @if (expandedId === service.id) {
+            <div class="accordion-item__body">
+              <div class="accordion-item__section">
+                <span class="accordion-item__label">Problem</span>
+                <p>{{ service.problem }}</p>
+              </div>
+              <div class="accordion-item__section">
+                <span class="accordion-item__label">Process</span>
+                <p>{{ service.process }}</p>
+              </div>
+              <div class="accordion-item__section">
+                <span class="accordion-item__label">Result</span>
+                <p>{{ service.result }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="vbl-section vbl-section-alt">
+  <div class="vbl-container">
+    <app-section-heading
+      title="Upcoming Events"
+      subtitle="Join the next workshop or seminar — online or in person."
+    />
+    <div class="row g-4">
+      @for (event of workshops; track event.id) {
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <article class="event-card vbl-card h-100">
+            <h3 class="event-card__title">{{ event.title }}</h3>
+            <ul class="event-card__details">
+              <li>
+                <i class="bi bi-calendar3" aria-hidden="true"></i>
+                {{ event.date | date: 'longDate' }}
+              </li>
+              <li>
+                <i class="bi bi-clock" aria-hidden="true"></i>
+                {{ event.time }}
+              </li>
+              <li>
+                <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                {{ event.mode | titlecase }} — {{ event.location }}
+              </li>
+              <li>
+                <i class="bi bi-people" aria-hidden="true"></i>
+                {{ event.seats }} seats available
+              </li>
+            </ul>
+            <a routerLink="/register" class="btn vbl-btn-primary w-100 mt-auto">Register</a>
+          </article>
+        </div>
+      }
+    </div>
+  </div>
+</section>

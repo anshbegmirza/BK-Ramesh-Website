@@ -1,0 +1,7 @@
+<div class="section-heading" [class.text-center]="centered">
+  <h2 class="section-heading__title">{{ title }}</h2>
+  @if (subtitle) {
+    <p class="section-heading__subtitle text-muted-vbl">{{ subtitle }}</p>
+  }
+  <div class="divider-accent" [class.mx-auto]="centered"></div>
+</div>

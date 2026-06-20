@@ -1,0 +1,30 @@
+<article
+  class="service-card vbl-card h-100"
+  [class.service-card--featured]="service.featured"
+  [attr.data-aos]="compact ? null : 'fade-up'"
+>
+  <div class="service-card__header">
+    <span class="service-card__icon" aria-hidden="true">
+      <i [class]="service.icon"></i>
+    </span>
+    <h3 class="service-card__title">{{ service.name }}</h3>
+    @if (service.featured) {
+      <span class="service-card__badge">Flagship Program</span>
+    }
+  </div>
+
+  <div class="service-card__body">
+    <div class="service-card__section">
+      <span class="service-card__label">Problem</span>
+      <p>{{ service.problem }}</p>
+    </div>
+    <div class="service-card__section">
+      <span class="service-card__label">Process</span>
+      <p>{{ service.process }}</p>
+    </div>
+    <div class="service-card__section">
+      <span class="service-card__label">Result</span>
+      <p>{{ service.result }}</p>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,81 @@
+<section class="page-hero vbl-section-alt">
+  <div class="vbl-container text-center" data-aos="fade-up">
+    <h1 class="page-hero__title">About BK Ramesh</h1>
+    <p class="page-hero__subtitle text-muted-vbl">
+      NLP & Life Coach · Value Based Living
+    </p>
+    <div class="divider-accent mx-auto"></div>
+  </div>
+</section>
+
+<section class="vbl-section">
+  <div class="vbl-container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5" data-aos="fade-right">
+        <img
+          ngSrc="/images/profile-photo.jpeg"
+          width="960"
+          height="640"
+          alt="Portrait of BK Ramesh, NLP and Life Coach"
+          class="about__photo rounded-3"
+        />
+      </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="about__bio vbl-prose">
+          <p>
+            In the journey of his life, BK Ramesh interacted with a wide variety of people and
+            witnessed many ups and downs alongside them. After becoming part of Brahma Kumaris, a
+            spiritual organization, he felt called to serve people across all walks of life. That
+            is when he discovered NLP (Neuro-Linguistic Programming).
+          </p>
+          <p>
+            For the last 7 years, BK Ramesh has used NLP to help people transform their lives. He
+            has seen firsthand how many people struggle today — with goal setting, career growth,
+            depression, anxiety, and unhealthy relationships. What he loves most is bringing a smile
+            back to people's faces.
+          </p>
+          <p>
+            Many of his clients return to complete his full NLP course. He has also developed one
+            of his most loved programs —
+            <strong>Personality Development Training for the Perfect Woman</strong> — helping women
+            build confidence while understanding the true value of their lives.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="vbl-section vbl-section-alt">
+  <div class="vbl-container">
+    <app-section-heading title="My Journey" subtitle="From spiritual service to NLP mastery." />
+    <div class="timeline">
+      @for (item of timeline; track item.title; let i = $index) {
+        <div class="timeline__item" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 100">
+          <div class="timeline__marker"></div>
+          <div class="timeline__content vbl-card">
+            <span class="timeline__year">{{ item.year }}</span>
+            <h3 class="timeline__title">{{ item.title }}</h3>
+            <p class="text-muted-vbl mb-0">{{ item.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="vbl-section">
+  <div class="vbl-container">
+    <app-section-heading title="Focus Areas" subtitle="Core areas where I guide clients toward lasting change." />
+    <div class="row g-3">
+      @for (area of focusAreas; track area.label) {
+        <div class="col-6 col-md-4 col-lg" data-aos="fade-up">
+          <div class="focus-card vbl-card text-center h-100">
+            <i [class]="area.icon + ' focus-card__icon'" aria-hidden="true"></i>
+            <span class="focus-card__label">{{ area.label }}</span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

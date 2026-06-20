@@ -1,0 +1,39 @@
+<section class="page-hero vbl-section-alt">
+  <div class="vbl-container text-center" data-aos="fade-up">
+    <h1 class="page-hero__title">Client Testimonials</h1>
+    <p class="page-hero__subtitle text-muted-vbl">
+      Stories of transformation from people who walked the path with BK Ramesh.
+    </p>
+    <div class="divider-accent mx-auto"></div>
+  </div>
+</section>
+
+<section class="vbl-section">
+  <div class="vbl-container">
+    <div class="row g-4">
+      @for (item of testimonials; track item.id) {
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <article class="testimonial-card vbl-card h-100">
+            <div class="testimonial-card__header">
+              <img
+                [ngSrc]="item.imageUrl!"
+                width="56"
+                height="56"
+                [alt]="'Photo of ' + item.name"
+                class="testimonial-card__avatar rounded-circle"
+              />
+              <div>
+                <h3 class="testimonial-card__name">{{ item.name }}</h3>
+                <span class="testimonial-card__program text-muted-vbl">{{ item.program }}</span>
+              </div>
+            </div>
+            <blockquote class="testimonial-card__quote">
+              <i class="bi bi-quote testimonial-card__icon" aria-hidden="true"></i>
+              <p>"{{ item.quote }}"</p>
+            </blockquote>
+          </article>
+        </div>
+      }
+    </div>
+  </div>
+</section>

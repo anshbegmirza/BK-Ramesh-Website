@@ -1,0 +1,240 @@
+.hero {
+  position: relative;
+  min-height: clamp(480px, 85vh, 720px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  &__bg {
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgba(28, 23, 20, 0.88) 0%,
+      rgba(28, 23, 20, 0.72) 42%,
+      rgba(123, 45, 58, 0.35) 100%
+    );
+    z-index: 1;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    padding-block: 4rem;
+    max-width: 640px;
+    color: #f5f0ea;
+  }
+
+  &__eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--vbl-accent-light);
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.12;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  &__subtitle {
+    font-size: clamp(1.0625rem, 2.5vw, 1.25rem);
+    line-height: 1.65;
+    color: rgba(245, 240, 234, 0.92);
+    margin-bottom: 2rem;
+    max-width: 52ch;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+.intro {
+  &__photo {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    object-position: center top;
+    box-shadow: 0 8px 32px var(--vbl-shadow);
+  }
+
+  &__title {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 600;
+  }
+}
+
+.nlp-spotlight {
+  &__photo {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    box-shadow: 0 8px 32px var(--vbl-shadow);
+  }
+
+  &__eyebrow {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--vbl-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  &__title {
+    font-size: clamp(1.625rem, 3.5vw, 2.125rem);
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+}
+
+.testimonial-carousel {
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+
+  &__viewport {
+    overflow: hidden;
+  }
+
+  &__track {
+    display: flex;
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    margin: 0;
+
+    p {
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--vbl-text);
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      font-size: 0.95rem;
+    }
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+    color: var(--vbl-accent);
+    opacity: 0.5;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  &__avatar {
+    width: 135px;
+    height: 135px;
+    object-fit: cover;
+    border: 3px solid var(--vbl-accent);
+    margin-bottom: 1.25rem;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  &__btn {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--vbl-border);
+    border-radius: 50%;
+    background: var(--vbl-surface);
+    color: var(--vbl-text);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      background: var(--vbl-surface-alt);
+      border-color: var(--vbl-accent);
+      color: var(--vbl-accent);
+    }
+  }
+}
+
+.workshop-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-left: 4px solid var(--vbl-accent);
+
+  &__label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--vbl-accent);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  &__title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  &__meta {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+
+.cta-section {
+  &__title {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero__actions {
+    flex-direction: column;
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  .workshop-strip {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .btn {
+      width: 100%;
+    }
+  }
+}

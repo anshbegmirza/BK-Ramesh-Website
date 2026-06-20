@@ -1,0 +1,183 @@
+<!-- Hero -->
+<section class="hero">
+  <div class="hero__overlay"></div>
+  <img
+    class="hero__bg"
+    [ngSrc]="site.images.cover"
+    alt=""
+    fill
+    priority
+    aria-hidden="true"
+  />
+  <div class="vbl-container hero__content" data-aos="fade-up">
+    <p class="hero__eyebrow">{{ site.subtitle }}</p>
+    <h1 class="hero__title">{{ site.tagline }}</h1>
+    <p class="hero__subtitle">{{ site.altTagline }}</p>
+    <div class="hero__actions">
+      <a routerLink="/register" class="btn vbl-btn-accent">Book a Free Session</a>
+      <a routerLink="/workshops" class="btn vbl-btn-outline">Join Next Workshop</a>
+    </div>
+  </div>
+</section>
+
+<!-- Intro -->
+<section class="vbl-section">
+  <div class="vbl-container">
+    <div class="row align-items-center g-4">
+      <div class="col-md-5" data-aos="fade-right">
+        <img
+          [ngSrc]="site.images.profile"
+          width="960"
+          height="640"
+          alt="BK Ramesh — NLP & Life Coach"
+          class="intro__photo rounded-3"
+        />
+      </div>
+      <div class="col-md-7" data-aos="fade-left">
+        <h2 class="intro__title">Meet BK Ramesh</h2>
+        <div class="divider-accent"></div>
+        <div class="vbl-prose">
+          <p>
+            For the last 7 years, BK Ramesh has used NLP to help people transform their lives — from
+            goal setting and career growth to depression, anxiety, and unhealthy relationships. His
+            mission is simple: bring a smile back to people's faces.
+          </p>
+          <p>
+            Rooted in the spiritual wisdom of Brahma Kumaris and powered by proven NLP techniques, he
+            guides clients toward confidence, clarity, and lasting change.
+          </p>
+        </div>
+        <a routerLink="/about" class="btn vbl-btn-primary mt-2">Read Full Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NLP Coaching spotlight -->
+<section class="vbl-section vbl-section-alt">
+  <div class="vbl-container">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+        <img
+          [ngSrc]="site.images.nlpCoaching"
+          width="1024"
+          height="1024"
+          alt="BK Ramesh conducting an NLP coaching session at a public seminar"
+          class="nlp-spotlight__photo rounded-3"
+        />
+      </div>
+      <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+        <span class="nlp-spotlight__eyebrow">NLP Coaching</span>
+        <h2 class="nlp-spotlight__title">Transform Your Mind, One Session at a Time</h2>
+        <div class="divider-accent"></div>
+        <p class="lead-vbl">
+          Experience proven Neuro-Linguistic Programming techniques in workshops and one-to-one
+          sessions — designed to reframe limiting beliefs and unlock lasting change.
+        </p>
+        <a routerLink="/workshops" class="btn vbl-btn-primary mt-2">Explore NLP Programs</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services overview -->
+<section class="vbl-section vbl-section-alt">
+  <div class="vbl-container">
+    <app-section-heading
+      title="How I Can Help You"
+      subtitle="Every program follows a clear path — understand the problem, apply proven NLP methods, and experience real transformation."
+    />
+    <div class="row g-4">
+      @for (service of services; track service.id) {
+        <div class="col-md-6 col-lg-4">
+          <app-service-card [service]="service" />
+        </div>
+      }
+    </div>
+    <div class="text-center mt-4" data-aos="fade-up">
+      <a routerLink="/workshops" class="btn vbl-btn-outline">View All Services & Workshops</a>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials carousel -->
+<section class="vbl-section">
+  <div class="vbl-container">
+    <app-section-heading
+      title="Client Stories"
+      subtitle="Real transformations from people who walked the path with BK Ramesh."
+    />
+    <div class="testimonial-carousel" data-aos="fade-up">
+      <div class="testimonial-carousel__viewport">
+        <div
+          class="testimonial-carousel__track"
+          [style.transform]="'translateX(-' + activeTestimonial * 100 + '%)'"
+        >
+          @for (item of testimonials; track item.id) {
+            <blockquote class="testimonial-carousel__slide">
+              <img
+                [ngSrc]="item.imageUrl!"
+                width="135"
+                height="135"
+                [alt]="'Photo of ' + item.name"
+                class="testimonial-carousel__avatar rounded-circle"
+              />
+              <i class="bi bi-quote testimonial-carousel__icon" aria-hidden="true"></i>
+              <p>"{{ item.quote }}"</p>
+              <footer>
+                <strong>{{ item.name }}</strong>
+                <span class="text-muted-vbl"> — {{ item.program }}</span>
+              </footer>
+            </blockquote>
+          }
+        </div>
+      </div>
+      <div class="testimonial-carousel__controls">
+        <button type="button" class="testimonial-carousel__btn" (click)="prevTestimonial()" aria-label="Previous testimonial">
+          <i class="bi bi-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="testimonial-carousel__btn" (click)="nextTestimonial()" aria-label="Next testimonial">
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <a routerLink="/testimonials" class="btn btn-link">View All Testimonials</a>
+    </div>
+  </div>
+</section>
+
+<!-- Upcoming workshop -->
+<section class="vbl-section vbl-section-alt">
+  <div class="vbl-container">
+    <div class="workshop-strip vbl-card" data-aos="fade-up">
+      <div class="workshop-strip__content">
+        <span class="workshop-strip__label">Upcoming Workshop</span>
+        <h3 class="workshop-strip__title">{{ upcomingWorkshop.title }}</h3>
+        <p class="workshop-strip__meta text-muted-vbl">
+          <i class="bi bi-calendar3" aria-hidden="true"></i>
+          {{ upcomingWorkshop.date | date: 'longDate' }}
+          &nbsp;·&nbsp;
+          <i class="bi bi-clock" aria-hidden="true"></i>
+          {{ upcomingWorkshop.time }}
+          &nbsp;·&nbsp;
+          <i class="bi bi-camera-video" aria-hidden="true"></i>
+          {{ upcomingWorkshop.mode | titlecase }}
+        </p>
+      </div>
+      <a routerLink="/register" class="btn vbl-btn-accent">Register Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="vbl-section cta-section">
+  <div class="vbl-container text-center" data-aos="fade-up">
+    <h2 class="cta-section__title">Ready to Transform Your Life?</h2>
+    <p class="text-muted-vbl mb-4">Take the first step — book a free session or connect on WhatsApp.</p>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <a routerLink="/register" class="btn vbl-btn-accent">Book a Free Session</a>
+      <a routerLink="/contact" class="btn vbl-btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>

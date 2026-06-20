@@ -1,0 +1,58 @@
+<header class="site-header" [class.site-header--menu-open]="menuOpen">
+  <div class="vbl-container site-header__inner">
+    <a routerLink="/" class="site-header__brand" (click)="closeMenu()">
+      <span class="site-header__brand-name">{{ site.shortName }}</span>
+      <span class="site-header__brand-tag">Value Based Living</span>
+    </a>
+
+    <nav class="site-header__nav" [class.is-open]="menuOpen" aria-label="Main navigation">
+      @for (link of navLinks; track link.path) {
+        <a
+          class="site-header__link"
+          [routerLink]="link.path"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          (click)="closeMenu()"
+        >
+          <i [class]="link.icon + ' site-header__link-icon'" aria-hidden="true"></i>
+          <span>{{ link.label }}</span>
+        </a>
+      }
+    </nav>
+
+    <div class="site-header__actions">
+      <button
+        type="button"
+        class="site-header__theme-btn"
+        (click)="toggleTheme()"
+        [attr.aria-label]="themeButtonLabel"
+        [attr.title]="themeButtonLabel"
+      >
+        @if (isLightTheme) {
+          <i class="bi bi-sun" aria-hidden="true"></i>
+        } @else {
+          <i class="bi bi-moon-stars" aria-hidden="true"></i>
+        }
+      </button>
+
+      <a routerLink="/register" class="site-header__cta d-none d-md-inline-flex" (click)="closeMenu()">
+        <i class="bi bi-calendar-check" aria-hidden="true"></i>
+        <span>Book Session</span>
+      </a>
+
+      <button
+        type="button"
+        class="site-header__menu-btn d-lg-none"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen"
+        aria-label="Toggle menu"
+      >
+        @if (menuOpen) {
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        } @else {
+          <i class="bi bi-list" aria-hidden="true"></i>
+        }
+      </button>
+    </div>
+  </div>
+</header>
