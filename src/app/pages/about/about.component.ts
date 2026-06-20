@@ -13,6 +13,7 @@ import { SITE_CONFIG } from '../../data/site.config';
 })
 export class AboutComponent implements OnInit {
   seo = inject(SeoService);
+  site = SITE_CONFIG;
 
   focusAreas = [
     { icon: 'bi-shield-check', label: 'Confidence building' },

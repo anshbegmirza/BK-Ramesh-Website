@@ -15,46 +15,61 @@
     <p class="hero__subtitle">{{ site.altTagline }}</p>
     <div class="hero__actions">
       <a routerLink="/register" class="btn vbl-btn-accent">Book a Free Session</a>
-      <a routerLink="/workshops" class="btn vbl-btn-outline">Join Next Workshop</a>
+      <a routerLink="/workshops" class="btn vbl-btn-outline vbl-btn-white">Join Next Workshop</a>
     </div>
   </div>
 </section>
 
 <!-- Intro -->
-<section class="vbl-section">
+<section class="vbl-section meet-section">
   <div class="vbl-container">
-    <div class="row align-items-center g-4">
-      <div class="col-md-5" data-aos="fade-right">
+    <div class="meet-strip" data-aos="fade-up">
+      <div class="meet-strip__glow" aria-hidden="true"></div>
+      <div class="meet-strip__media">
         <img
           [ngSrc]="site.images.profile"
           width="960"
           height="640"
           alt="BK Ramesh — NLP & Life Coach"
-          class="intro__photo rounded-3"
+          class="meet-strip__photo"
         />
       </div>
-      <div class="col-md-7" data-aos="fade-left">
-        <h2 class="intro__title">Meet BK Ramesh</h2>
-        <div class="divider-accent"></div>
-        <div class="vbl-prose">
-          <p>
-            For the last 7 years, BK Ramesh has used NLP to help people transform their lives — from
-            goal setting and career growth to depression, anxiety, and unhealthy relationships. His
-            mission is simple: bring a smile back to people's faces.
-          </p>
-          <p>
-            Rooted in the spiritual wisdom of Brahma Kumaris and powered by proven NLP techniques, he
-            guides clients toward confidence, clarity, and lasting change.
-          </p>
-        </div>
-        <a routerLink="/about" class="btn vbl-btn-primary mt-2">Read Full Story</a>
+      <div class="meet-strip__content">
+        <span class="meet-strip__label">
+          <i class="bi bi-stars" aria-hidden="true"></i>
+          Meet BK Ramesh
+        </span>
+        <h2 class="meet-strip__title">NLP Mind & Relationship Coach</h2>
+        <p class="meet-strip__meta">
+          <i class="bi bi-award" aria-hidden="true"></i>
+          7+ Years Experience
+          &nbsp;·&nbsp;
+          <i class="bi bi-heart" aria-hidden="true"></i>
+          Value Based Living
+          &nbsp;·&nbsp;
+          <i class="bi bi-globe2" aria-hidden="true"></i>
+          Online & In-Person
+        </p>
+        <p class="meet-strip__text">
+          For the last 7 years, BK Ramesh has used NLP to help people transform their lives — from
+          goal setting and career growth to depression, anxiety, and unhealthy relationships. His
+          mission is simple: bring a smile back to people's faces.
+        </p>
+        <p class="meet-strip__text">
+          Rooted in the spiritual wisdom of Brahma Kumaris and powered by proven NLP techniques, he
+          guides clients toward confidence, clarity, and lasting change.
+        </p>
+        <a routerLink="/about" class="btn meet-strip__btn">
+          <i class="bi bi-book" aria-hidden="true"></i>
+          Read Full Story
+        </a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- NLP Coaching spotlight -->
-<section class="vbl-section vbl-section-alt">
+<section class="vbl-section vbl-section-alt" data-aos="fade-up">
   <div class="vbl-container">
     <div class="row align-items-center g-4 g-lg-5">
       <div class="col-lg-6 order-lg-2" data-aos="fade-left">
@@ -88,9 +103,9 @@
       subtitle="Every program follows a clear path — understand the problem, apply proven NLP methods, and experience real transformation."
     />
     <div class="row g-4">
-      @for (service of services; track service.id) {
+      @for (service of services; track service.id; let i = $index) {
         <div class="col-md-6 col-lg-4">
-          <app-service-card [service]="service" />
+          <app-service-card [service]="service" [aosDelay]="i * 120" />
         </div>
       }
     </div>
@@ -101,7 +116,7 @@
 </section>
 
 <!-- Testimonials carousel -->
-<section class="vbl-section">
+<section class="vbl-section" data-aos="fade-up">
   <div class="vbl-container">
     <app-section-heading
       title="Client Stories"
@@ -147,14 +162,28 @@
   </div>
 </section>
 
+<!-- Workshop highlights gallery -->
+<app-gallery-showcase
+  [images]="galleryImages"
+  eyebrow="Gallery"
+  title="Workshop & Session Highlights"
+  description="Every photo tells a story of growth — from packed seminar halls to quiet breakthrough moments. These are real people on the path to transforming their minds and lives with NLP."
+  ctaLabel="Join the Next Workshop"
+  ctaLink="/workshops"
+/>
+
 <!-- Upcoming workshop -->
-<section class="vbl-section vbl-section-alt">
+<section class="vbl-section workshop-cta-section">
   <div class="vbl-container">
-    <div class="workshop-strip vbl-card" data-aos="fade-up">
+    <div class="workshop-strip" data-aos="zoom-in" data-aos-duration="800">
+      <div class="workshop-strip__glow" aria-hidden="true"></div>
       <div class="workshop-strip__content">
-        <span class="workshop-strip__label">Upcoming Workshop</span>
+        <span class="workshop-strip__label">
+          <i class="bi bi-stars" aria-hidden="true"></i>
+          Upcoming Workshop
+        </span>
         <h3 class="workshop-strip__title">{{ upcomingWorkshop.title }}</h3>
-        <p class="workshop-strip__meta text-muted-vbl">
+        <p class="workshop-strip__meta">
           <i class="bi bi-calendar3" aria-hidden="true"></i>
           {{ upcomingWorkshop.date | date: 'longDate' }}
           &nbsp;·&nbsp;
@@ -165,19 +194,28 @@
           {{ upcomingWorkshop.mode | titlecase }}
         </p>
       </div>
-      <a routerLink="/register" class="btn vbl-btn-accent">Register Now</a>
+      <a routerLink="/register" class="btn workshop-strip__btn">
+        <i class="bi bi-pencil-square" aria-hidden="true"></i>
+        Register Now
+      </a>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="vbl-section cta-section">
+<section class="vbl-section cta-section" data-aos="fade-up">
   <div class="vbl-container text-center" data-aos="fade-up">
     <h2 class="cta-section__title">Ready to Transform Your Life?</h2>
     <p class="text-muted-vbl mb-4">Take the first step — book a free session or connect on WhatsApp.</p>
     <div class="d-flex flex-wrap justify-content-center gap-3">
-      <a routerLink="/register" class="btn vbl-btn-accent">Book a Free Session</a>
-      <a routerLink="/contact" class="btn vbl-btn-outline">Get in Touch</a>
+      <a routerLink="/register" class="btn vbl-btn-accent">
+        <i class="bi bi-calendar-check" aria-hidden="true"></i>
+        Book a Free Session
+      </a>
+      <a routerLink="/contact" class="btn vbl-btn-outline">
+        <i class="bi bi-chat-dots" aria-hidden="true"></i>
+        Get in Touch
+      </a>
     </div>
   </div>
 </section>

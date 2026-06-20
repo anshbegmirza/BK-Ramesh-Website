@@ -12,7 +12,10 @@
         <ul class="site-footer__links">
           @for (link of quickLinks; track link.path) {
             <li>
-              <a [routerLink]="link.path">{{ link.label }}</a>
+              <a [routerLink]="link.path">
+                <i [class]="link.icon" aria-hidden="true"></i>
+                {{ link.label }}
+              </a>
             </li>
           }
         </ul>

@@ -1,8 +1,19 @@
-<header class="site-header" [class.site-header--menu-open]="menuOpen">
+<header class="site-header" [class.site-header--menu-open]="menuOpen" [class.site-header--scrolled]="isScrolled">
   <div class="vbl-container site-header__inner">
     <a routerLink="/" class="site-header__brand" (click)="closeMenu()">
-      <span class="site-header__brand-name">{{ site.shortName }}</span>
-      <span class="site-header__brand-tag">Value Based Living</span>
+      <img
+        [ngSrc]="site.images.logo"
+        width="1536"
+        height="1024"
+        alt=""
+        aria-hidden="true"
+        class="site-header__logo"
+        priority
+      />
+      <span class="site-header__brand-text">
+        <span class="site-header__brand-name">{{ site.shortName }}</span>
+        <span class="site-header__brand-tag">Value Based Living</span>
+      </span>
     </a>
 
     <nav class="site-header__nav" [class.is-open]="menuOpen" aria-label="Main navigation">

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SITE_CONFIG } from '../../data/site.config';
+import { MAIN_NAV_LINKS } from '../../data/nav-links.data';
 
 @Component({
   selector: 'app-footer',
@@ -13,11 +14,5 @@ export class FooterComponent {
   site = SITE_CONFIG;
   currentYear = new Date().getFullYear();
 
-  quickLinks = [
-    { label: 'About', path: '/about' },
-    { label: 'Workshops & Events', path: '/workshops' },
-    { label: 'Register on Zoom', path: '/register' },
-    { label: 'Testimonials', path: '/testimonials' },
-    { label: 'Contact', path: '/contact' },
-  ];
+  quickLinks = MAIN_NAV_LINKS;
 }

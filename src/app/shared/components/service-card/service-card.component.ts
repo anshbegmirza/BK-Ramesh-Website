@@ -10,4 +10,5 @@ import { CoachingService } from '../../../core/models/service.model';
 export class ServiceCardComponent {
   @Input({ required: true }) service!: CoachingService;
   @Input() compact = false;
+  @Input() aosDelay = 0;
 }

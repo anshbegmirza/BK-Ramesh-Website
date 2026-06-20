@@ -8,21 +8,27 @@
   </div>
 </section>
 
-<section class="vbl-section">
+<section class="vbl-section about-spotlight-section">
   <div class="vbl-container">
-    <div class="row g-5 align-items-start">
-      <div class="col-lg-5" data-aos="fade-right">
+    <div class="about-spotlight" data-aos="fade-up">
+      <div class="about-spotlight__glow" aria-hidden="true"></div>
+      <div class="about-spotlight__frame" aria-hidden="true"></div>
+      <div class="about-spotlight__media" data-aos="fade-right">
         <img
-          ngSrc="/images/profile-photo.jpeg"
-          width="960"
-          height="640"
-          alt="Portrait of BK Ramesh, NLP and Life Coach"
-          class="about__photo rounded-3"
+          [ngSrc]="site.images.aboutSeminar"
+          width="1024"
+          height="1024"
+          alt="BK Ramesh presenting an NLP seminar on manifestation and mental clarity"
+          class="about-spotlight__photo"
         />
       </div>
-      <div class="col-lg-7" data-aos="fade-left">
-        <div class="about__bio vbl-prose">
-          <p>
+      <div class="about-spotlight__content" data-aos="fade-left">
+        <span class="about-spotlight__label">
+          <i class="bi bi-bookmark-star" aria-hidden="true"></i>
+          The Story Behind the Coach
+        </span>
+        <div class="about-spotlight__bio">
+          <p class="about-spotlight__lead">
             In the journey of his life, BK Ramesh interacted with a wide variety of people and
             witnessed many ups and downs alongside them. After becoming part of Brahma Kumaris, a
             spiritual organization, he felt called to serve people across all walks of life. That
@@ -46,17 +52,17 @@
   </div>
 </section>
 
-<section class="vbl-section vbl-section-alt">
+<section class="vbl-section vbl-section-alt journey-section">
   <div class="vbl-container">
     <app-section-heading title="My Journey" subtitle="From spiritual service to NLP mastery." />
     <div class="timeline">
       @for (item of timeline; track item.title; let i = $index) {
         <div class="timeline__item" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 100">
           <div class="timeline__marker"></div>
-          <div class="timeline__content vbl-card">
+          <div class="timeline__content">
             <span class="timeline__year">{{ item.year }}</span>
             <h3 class="timeline__title">{{ item.title }}</h3>
-            <p class="text-muted-vbl mb-0">{{ item.description }}</p>
+            <p class="timeline__text">{{ item.description }}</p>
           </div>
         </div>
       }
@@ -64,18 +70,28 @@
   </div>
 </section>
 
-<section class="vbl-section">
+<section class="vbl-section focus-section">
   <div class="vbl-container">
-    <app-section-heading title="Focus Areas" subtitle="Core areas where I guide clients toward lasting change." />
-    <div class="row g-3">
-      @for (area of focusAreas; track area.label) {
-        <div class="col-6 col-md-4 col-lg" data-aos="fade-up">
-          <div class="focus-card vbl-card text-center h-100">
+    <div class="focus-strip" data-aos="fade-up">
+      <div class="focus-strip__glow" aria-hidden="true"></div>
+      <header class="focus-strip__header">
+        <span class="focus-strip__label">
+          <i class="bi bi-stars" aria-hidden="true"></i>
+          What I Specialize In
+        </span>
+        <h2 class="focus-strip__title">Focus Areas</h2>
+        <p class="focus-strip__subtitle">
+          Core areas where I guide clients toward lasting change.
+        </p>
+      </header>
+      <div class="focus-strip__grid">
+        @for (area of focusAreas; track area.label) {
+          <div class="focus-card" data-aos="fade-up">
             <i [class]="area.icon + ' focus-card__icon'" aria-hidden="true"></i>
             <span class="focus-card__label">{{ area.label }}</span>
           </div>
-        </div>
-      }
+        }
+      </div>
     </div>
   </div>
 </section>

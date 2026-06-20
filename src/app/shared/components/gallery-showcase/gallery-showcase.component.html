@@ -1,0 +1,31 @@
+<section class="gallery-showcase" data-aos="fade-up">
+  <div class="gallery-showcase__text" data-aos="fade-right" data-aos-duration="700">
+    <span class="gallery-showcase__eyebrow">{{ eyebrow }}</span>
+    <h2 class="gallery-showcase__title">{{ title }}</h2>
+    <div class="divider-accent"></div>
+    <p class="gallery-showcase__description">{{ description }}</p>
+
+    <ul class="gallery-showcase__highlights">
+      <li>
+        <i class="bi bi-people-fill" aria-hidden="true"></i>
+        <span>Live workshops &amp; seminars across India</span>
+      </li>
+      <li>
+        <i class="bi bi-lightning-charge-fill" aria-hidden="true"></i>
+        <span>Real NLP breakthroughs, captured in the moment</span>
+      </li>
+      <li>
+        <i class="bi bi-heart-fill" aria-hidden="true"></i>
+        <span>Transformations that bring smiles back</span>
+      </li>
+    </ul>
+
+    @if (ctaLabel && ctaLink) {
+      <a [routerLink]="ctaLink" class="btn vbl-btn-primary gallery-showcase__cta">{{ ctaLabel }}</a>
+    }
+  </div>
+
+  <div class="gallery-showcase__gallery" data-aos="fade-left" data-aos-duration="700" data-aos-delay="150">
+    <app-photo-gallery [images]="images" [animate]="true" />
+  </div>
+</section>

@@ -1,0 +1,16 @@
+<div class="photo-gallery" [class.photo-gallery--animated]="animate">
+  @for (image of images; track image.src; let i = $index) {
+    <figure
+      class="photo-gallery__item"
+      [class.photo-gallery__item--animated]="animate"
+      [style.--item-delay]="i * 0.04 + 's'"
+    >
+      <img
+        [ngSrc]="image.src"
+        [width]="image.width"
+        [height]="image.height"
+        [alt]="image.alt"
+      />
+    </figure>
+  }
+</div>

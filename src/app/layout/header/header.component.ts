@@ -1,36 +1,26 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, inject, OnDestroy, OnInit } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ThemeService } from '../../core/services/theme.service';
 import { SITE_CONFIG } from '../../data/site.config';
-
-interface NavLink {
-  label: string;
-  path: string;
-  icon: string;
-}
+import { MAIN_NAV_LINKS } from '../../data/nav-links.data';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, NgOptimizedImage],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   site = SITE_CONFIG;
   menuOpen = false;
+  isScrolled = false;
   isLightTheme = true;
   themeButtonLabel = 'Light mode. Switch to dark mode.';
 
-  navLinks: NavLink[] = [
-    { label: 'Home', path: '/', icon: 'bi-house' },
-    { label: 'About', path: '/about', icon: 'bi-person' },
-    { label: 'Workshops', path: '/workshops', icon: 'bi-calendar-event' },
-    { label: 'Testimonials', path: '/testimonials', icon: 'bi-chat-quote' },
-    { label: 'Register', path: '/register', icon: 'bi-camera-video' },
-    { label: 'Contact', path: '/contact', icon: 'bi-envelope' },
-  ];
+  navLinks = MAIN_NAV_LINKS;
 
   themeSubscription?: Subscription;
 
@@ -38,11 +28,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.syncThemeUi();
+    this.updateScrollState();
     this.themeSubscription = this.themeService.themeChanged$.subscribe(() => this.syncThemeUi());
   }
 
   ngOnDestroy() {
     this.themeSubscription?.unsubscribe();
+  }
+
+  @HostListener('window:scroll')
+  onScroll() {
+    this.updateScrollState();
   }
 
   toggleMenu() {
@@ -56,6 +52,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   toggleTheme() {
     this.themeService.toggle();
     this.syncThemeUi();
+  }
+
+  private updateScrollState() {
+    this.isScrolled = window.scrollY > 8;
   }
 
   private syncThemeUi() {

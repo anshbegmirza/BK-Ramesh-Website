@@ -1,10 +1,13 @@
+@use "../../../theme/signature-trail" as sig;
+
 .page-hero {
   padding-block: 3rem;
 
   &__title {
     font-size: clamp(2rem, 5vw, 2.75rem);
-    font-weight: 700;
+    font-weight: var(--vbl-heading-weight-strong);
     margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
   }
 
   &__subtitle {
@@ -15,6 +18,19 @@
 
 .testimonial-card {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  --vbl-trail-fill: var(--vbl-surface);
+  --vbl-trail-fill-hover: var(--vbl-surface-alt);
+
+  @include sig.signature-interactive;
+  @include sig.signature-reduced-motion;
+
+  &__header,
+  &__quote {
+    position: relative;
+    z-index: 1;
+  }
 
   &__header {
     display: flex;

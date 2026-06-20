@@ -2,6 +2,7 @@
   class="service-card vbl-card h-100"
   [class.service-card--featured]="service.featured"
   [attr.data-aos]="compact ? null : 'fade-up'"
+  [attr.data-aos-delay]="compact || !aosDelay ? null : aosDelay"
 >
   <div class="service-card__header">
     <span class="service-card__icon" aria-hidden="true">

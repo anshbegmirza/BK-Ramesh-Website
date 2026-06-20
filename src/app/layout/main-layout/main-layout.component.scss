@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-top: calc(var(--vbl-scroll-progress-height, 4px) + var(--vbl-header-height, 72px));
 
   &__content {
     flex: 1;

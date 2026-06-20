@@ -8,27 +8,29 @@
   </div>
 </section>
 
-<section class="vbl-section pt-0">
+<section class="vbl-section workshops-feature-section">
   <div class="vbl-container">
-    <div class="workshops-feature vbl-card" data-aos="fade-up">
-      <div class="row g-4 align-items-center">
-        <div class="col-md-5 col-lg-4">
-          <img
-            [ngSrc]="site.images.nlpCoaching"
-            width="1024"
-            height="1024"
-            alt="BK Ramesh leading an NLP coaching workshop"
-            class="workshops-feature__photo rounded-3"
-          />
-        </div>
-        <div class="col-md-7 col-lg-8">
-          <span class="workshops-feature__label">Featured · NLP Coaching</span>
-          <h2 class="workshops-feature__title">Live Workshops That Create Real Change</h2>
-          <p class="lead-vbl mb-0">
-            Join interactive NLP sessions — online or in person — where proven techniques help you
-            release limiting patterns and build a stronger self-image.
-          </p>
-        </div>
+    <div class="workshops-feature" data-aos="fade-up">
+      <div class="workshops-feature__glow" aria-hidden="true"></div>
+      <div class="workshops-feature__media">
+        <img
+          [ngSrc]="site.images.nlpCoaching"
+          width="1024"
+          height="1024"
+          alt="BK Ramesh leading an NLP coaching workshop"
+          class="workshops-feature__photo"
+        />
+      </div>
+      <div class="workshops-feature__content">
+        <span class="workshops-feature__label">
+          <i class="bi bi-stars" aria-hidden="true"></i>
+          Featured · NLP Coaching
+        </span>
+        <h2 class="workshops-feature__title">Live Workshops That Create Real Change</h2>
+        <p class="workshops-feature__text">
+          Join interactive NLP sessions — online or in person — where proven techniques help you
+          release limiting patterns and build a stronger self-image.
+        </p>
       </div>
     </div>
   </div>

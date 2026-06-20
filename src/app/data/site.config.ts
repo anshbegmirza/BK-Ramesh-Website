@@ -18,6 +18,9 @@ export const SITE_CONFIG = {
     cover: '/images/cover-photo.jpeg',
     profile: '/images/profile-photo.jpeg',
     nlpCoaching: '/images/nlp-coaching.jpeg',
+    aboutSeminar: '/images/about-seminar-photo.jpeg',
+    logo: '/images/bk-ramesh-logo-2.png',
+    favicon: '/images/image-bk-ramesh-logo.png',
   },
   formEndpoint: '',
 } as const;

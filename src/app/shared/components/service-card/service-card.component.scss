@@ -1,11 +1,27 @@
+@use "../../../../theme/signature-trail" as sig;
+
 .service-card {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
 
+  @include sig.signature-interactive;
+  @include sig.signature-reduced-motion;
+
+  &__header,
+  &__body {
+    position: relative;
+    z-index: 1;
+  }
+
   &--featured {
-    border-color: var(--vbl-accent);
-    box-shadow: 0 4px 32px rgba(201, 162, 75, 0.15);
+    box-shadow: var(--vbl-shadow-accent);
+
+    @include sig.signature-trail-idle(0.3, 9s);
+  }
+
+  &:hover .service-card__icon {
+    background: color-mix(in srgb, var(--vbl-accent) 10%, var(--vbl-surface-alt));
   }
 
   &__header {
@@ -27,6 +43,7 @@
     color: var(--vbl-accent);
     font-size: 1.25rem;
     flex-shrink: 0;
+    transition: background-color 0.5s ease;
   }
 
   &__title {
@@ -45,7 +62,7 @@
     padding: 0.25rem 0.75rem;
     border-radius: var(--vbl-radius-pill, 999px);
     background: var(--vbl-accent);
-    color: #2b2520;
+    color: var(--vbl-accent-foreground);
   }
 
   &__body {
@@ -69,6 +86,12 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--vbl-primary);
+    color: var(--vbl-label-color);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card:hover .service-card__icon {
+    background: var(--vbl-surface-alt);
   }
 }

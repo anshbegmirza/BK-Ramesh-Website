@@ -1,17 +1,36 @@
 /*
  * BK Ramesh — Value Based Living
- * Brand & design tokens (edit here to customize the site theme)
+ * Light = burgundy & cream brand | Dark = editorial (colors only)
  */
 
-// Brand palette
-$vbl-primary: #7b2d3a;
-$vbl-primary-dark: #5c222c;
-$vbl-primary-light: #9a3d4d;
-$vbl-accent: #c9a24b;
-$vbl-accent-dark: #a8843a;
-$vbl-accent-light: #d4b56a;
+// Shared semantic
+$vbl-success: #3d7a5f;
+$vbl-warning: #c4841a;
+$vbl-danger: #b33a3a;
 
-// Light theme surfaces
+// Shared typography & layout (same in light and dark)
+$vbl-font-heading: "Cormorant Garamond", Georgia, serif;
+$vbl-font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+
+$vbl-max-content-width: 1200px;
+$vbl-section-padding-y: 5rem;
+$vbl-section-padding-y-mobile: 3rem;
+
+$vbl-radius-sm: 8px;
+$vbl-radius-md: 12px;
+$vbl-radius-lg: 16px;
+$vbl-btn-radius: 999px;
+
+// ── Light theme colors ─────────────────────────────────────────────────────
+
+$vbl-light-primary: #7b2d3a;
+$vbl-light-primary-dark: #5c222c;
+$vbl-light-primary-light: #9a3d4d;
+$vbl-light-accent: #c9a24b;
+$vbl-light-accent-dark: #a8843a;
+$vbl-light-accent-light: #d4b56a;
+$vbl-light-accent-foreground: #2b2520;
+
 $vbl-light-bg: #faf7f2;
 $vbl-light-surface: #ffffff;
 $vbl-light-surface-alt: #f3ede4;
@@ -19,28 +38,31 @@ $vbl-light-text: #1f1b17;
 $vbl-light-text-body: #3d3630;
 $vbl-light-text-muted: #5c534b;
 $vbl-light-border: #e0d6c9;
+$vbl-light-border-hover: #d4c9ba;
 $vbl-light-shadow: rgba(43, 37, 32, 0.08);
 
-// Dark theme surfaces
-$vbl-dark-bg: #1c1714;
-$vbl-dark-surface: #2a231f;
-$vbl-dark-surface-alt: #352d28;
-$vbl-dark-text: #f5f0ea;
-$vbl-dark-text-body: #e8e2da;
-$vbl-dark-text-muted: #c9c0b6;
-$vbl-dark-border: #4a4038;
-$vbl-dark-shadow: rgba(0, 0, 0, 0.35);
+// ── Dark theme colors ──────────────────────────────────────────────────────
 
-// Semantic
-$vbl-success: #3d7a5f;
-$vbl-warning: #c4841a;
-$vbl-danger: #b33a3a;
+$vbl-dark-primary: #b8860b;
+$vbl-dark-primary-dark: #96700a;
+$vbl-dark-primary-light: #d4a84b;
+$vbl-dark-accent: #b8860b;
+$vbl-dark-accent-dark: #96700a;
+$vbl-dark-accent-light: #d4a84b;
+$vbl-dark-accent-foreground: #ffffff;
 
-// Typography
-$vbl-font-heading: "Cormorant Garamond", Georgia, serif;
-$vbl-font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+$vbl-dark-bg: #141414;
+$vbl-dark-surface: #1e1e1e;
+$vbl-dark-surface-alt: #252520;
+$vbl-dark-text: #f5f3f0;
+$vbl-dark-text-body: #e8e4df;
+$vbl-dark-text-muted: #a0a0a0;
+$vbl-dark-border: #3a3a38;
+$vbl-dark-border-hover: #4a4a48;
+$vbl-dark-shadow: rgba(0, 0, 0, 0.4);
 
-// Spacing scale (matches works4 rhythm: 4 / 8 / 16 / 24 / 48)
+// ── Shared motion & breakpoints ────────────────────────────────────────────
+
 $vbl-spacer: 1rem;
 $vbl-spacers: (
   0: 0,
@@ -51,24 +73,13 @@ $vbl-spacers: (
   5: 3rem,
 );
 
-// Layout
 $vbl-header-height: 72px;
 $vbl-header-height-mobile: 64px;
-$vbl-max-content-width: 1200px;
-$vbl-section-padding-y: 5rem;
-$vbl-section-padding-y-mobile: 3rem;
-
-// Shape
-$vbl-radius-sm: 8px;
-$vbl-radius-md: 12px;
-$vbl-radius-lg: 16px;
 $vbl-radius-pill: 999px;
 
-// Motion
-$vbl-transition-fast: 0.15s cubic-bezier(0.35, 0, 0.25, 1);
-$vbl-transition-base: 0.28s cubic-bezier(0.35, 0, 0.25, 1);
+$vbl-transition-fast: 0.15s ease-out;
+$vbl-transition-base: 0.2s ease-out;
 
-// Breakpoints (Bootstrap-aligned + 400px minimum)
 $vbl-breakpoint-xs: 400px;
 $vbl-breakpoint-sm: 576px;
 $vbl-breakpoint-md: 768px;

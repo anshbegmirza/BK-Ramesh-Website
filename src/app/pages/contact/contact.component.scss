@@ -3,8 +3,9 @@
 
   &__title {
     font-size: clamp(2rem, 5vw, 2.75rem);
-    font-weight: 700;
+    font-weight: var(--vbl-heading-weight-strong);
     margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
   }
 
   &__subtitle {
@@ -15,8 +16,9 @@
 
 .contact-info {
   &__title {
+    font-family: var(--vbl-font-heading);
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: var(--vbl-heading-weight);
     margin-bottom: 1rem;
   }
 
@@ -43,7 +45,7 @@
         color: var(--vbl-text-muted);
 
         &:hover {
-          color: var(--vbl-primary);
+          color: var(--vbl-accent);
         }
       }
     }
@@ -66,8 +68,8 @@
       transition: background 0.15s ease, color 0.15s ease;
 
       &:hover {
-        background: var(--vbl-primary);
-        color: #fff;
+        background: var(--vbl-accent);
+        color: var(--vbl-accent-foreground);
       }
     }
   }
@@ -95,8 +97,8 @@
     border-radius: var(--vbl-radius-sm);
 
     &:focus {
-      border-color: var(--vbl-primary);
-      box-shadow: 0 0 0 0.2rem rgba(123, 45, 58, 0.15);
+      border-color: var(--vbl-accent);
+      box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--vbl-accent) 20%, transparent);
     }
   }
 }

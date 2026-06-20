@@ -2,19 +2,50 @@
 
 /*
  * Theme CSS custom properties — toggled via data-theme on <html>
- * Override Bootstrap tokens where applicable.
+ * Typography & layout live on :root (shared). Theme blocks swap colors only.
  */
+
+:root {
+  --vbl-font-heading: #{vbl.$vbl-font-heading};
+  --vbl-font-body: #{vbl.$vbl-font-body};
+
+  --vbl-header-height: #{vbl.$vbl-header-height};
+  --vbl-max-content-width: #{vbl.$vbl-max-content-width};
+  --vbl-section-padding-y: #{vbl.$vbl-section-padding-y};
+  --vbl-section-padding-y-mobile: #{vbl.$vbl-section-padding-y-mobile};
+  --vbl-radius-sm: #{vbl.$vbl-radius-sm};
+  --vbl-radius-md: #{vbl.$vbl-radius-md};
+  --vbl-radius-lg: #{vbl.$vbl-radius-lg};
+  --vbl-radius-pill: #{vbl.$vbl-radius-pill};
+  --vbl-btn-radius: #{vbl.$vbl-btn-radius};
+
+  --vbl-heading-weight: 600;
+  --vbl-heading-weight-strong: 700;
+  --vbl-body-line-height: 1.625;
+  --vbl-body-letter-spacing: normal;
+  --vbl-divider-width: 64px;
+  --vbl-divider-height: 3px;
+  --vbl-divider-radius: #{vbl.$vbl-radius-pill};
+  --vbl-card-hover-lift: -2px;
+  --vbl-scroll-progress-height: 4px;
+
+  --vbl-success: #{vbl.$vbl-success};
+  --vbl-warning: #{vbl.$vbl-warning};
+  --vbl-danger: #{vbl.$vbl-danger};
+}
 
 :root,
 [data-theme="light"] {
   color-scheme: light;
 
-  --vbl-primary: #{vbl.$vbl-primary};
-  --vbl-primary-dark: #{vbl.$vbl-primary-dark};
-  --vbl-primary-light: #{vbl.$vbl-primary-light};
-  --vbl-accent: #{vbl.$vbl-accent};
-  --vbl-accent-dark: #{vbl.$vbl-accent-dark};
-  --vbl-accent-light: #{vbl.$vbl-accent-light};
+  --vbl-primary: #{vbl.$vbl-light-primary};
+  --vbl-primary-dark: #{vbl.$vbl-light-primary-dark};
+  --vbl-primary-light: #{vbl.$vbl-light-primary-light};
+  --vbl-accent: #{vbl.$vbl-light-accent};
+  --vbl-accent-dark: #{vbl.$vbl-light-accent-dark};
+  --vbl-accent-light: #{vbl.$vbl-light-accent-light};
+  --vbl-accent-muted: rgba(201, 162, 75, 0.08);
+  --vbl-accent-foreground: #{vbl.$vbl-light-accent-foreground};
 
   --vbl-bg: #{vbl.$vbl-light-bg};
   --vbl-surface: #{vbl.$vbl-light-surface};
@@ -23,24 +54,29 @@
   --vbl-text-body: #{vbl.$vbl-light-text-body};
   --vbl-text-muted: #{vbl.$vbl-light-text-muted};
   --vbl-border: #{vbl.$vbl-light-border};
+  --vbl-border-hover: #{vbl.$vbl-light-border-hover};
   --vbl-shadow: #{vbl.$vbl-light-shadow};
+  --vbl-shadow-sm: 0 4px 24px #{vbl.$vbl-light-shadow};
+  --vbl-shadow-md: 0 8px 32px #{vbl.$vbl-light-shadow};
+  --vbl-shadow-lg: 0 12px 48px #{vbl.$vbl-light-shadow};
+  --vbl-shadow-accent: 0 4px 20px rgba(201, 162, 75, 0.35);
 
-  --vbl-success: #{vbl.$vbl-success};
-  --vbl-warning: #{vbl.$vbl-warning};
-  --vbl-danger: #{vbl.$vbl-danger};
+  --vbl-label-color: var(--vbl-primary);
+  --vbl-nav-hover-color: var(--vbl-primary);
 
-  --vbl-font-heading: #{vbl.$vbl-font-heading};
-  --vbl-font-body: #{vbl.$vbl-font-body};
-
-  --vbl-header-height: #{vbl.$vbl-header-height};
-  --vbl-max-content-width: #{vbl.$vbl-max-content-width};
-  --vbl-radius-sm: #{vbl.$vbl-radius-sm};
-  --vbl-radius-md: #{vbl.$vbl-radius-md};
-  --vbl-radius-lg: #{vbl.$vbl-radius-lg};
-  --vbl-radius-pill: #{vbl.$vbl-radius-pill};
+  --vbl-hero-overlay: linear-gradient(
+    105deg,
+    rgba(28, 23, 20, 0.88) 0%,
+    rgba(28, 23, 20, 0.72) 42%,
+    rgba(123, 45, 58, 0.35) 100%
+  );
+  --vbl-workshop-strip-bg: linear-gradient(135deg, #5c222c 0%, #1c1714 55%, #2a231f 100%);
+  --vbl-workshop-strip-border: rgba(201, 162, 75, 0.4);
+  --vbl-workshop-strip-border-top: 4px solid var(--vbl-accent);
+  --vbl-workshop-strip-glow: radial-gradient(ellipse at 0% 50%, rgba(201, 162, 75, 0.18), transparent 55%);
 
   --bs-body-bg: var(--vbl-bg);
-  --bs-body-color: var(--vbl-text);
+  --bs-body-color: var(--vbl-text-body);
   --bs-primary: var(--vbl-primary);
   --bs-primary-rgb: 123, 45, 58;
   --bs-secondary: var(--vbl-text-muted);
@@ -52,6 +88,15 @@
 [data-theme="dark"] {
   color-scheme: dark;
 
+  --vbl-primary: #{vbl.$vbl-dark-primary};
+  --vbl-primary-dark: #{vbl.$vbl-dark-primary-dark};
+  --vbl-primary-light: #{vbl.$vbl-dark-primary-light};
+  --vbl-accent: #{vbl.$vbl-dark-accent};
+  --vbl-accent-dark: #{vbl.$vbl-dark-accent-dark};
+  --vbl-accent-light: #{vbl.$vbl-dark-accent-light};
+  --vbl-accent-muted: rgba(184, 134, 11, 0.1);
+  --vbl-accent-foreground: #{vbl.$vbl-dark-accent-foreground};
+
   --vbl-bg: #{vbl.$vbl-dark-bg};
   --vbl-surface: #{vbl.$vbl-dark-surface};
   --vbl-surface-alt: #{vbl.$vbl-dark-surface-alt};
@@ -59,12 +104,31 @@
   --vbl-text-body: #{vbl.$vbl-dark-text-body};
   --vbl-text-muted: #{vbl.$vbl-dark-text-muted};
   --vbl-border: #{vbl.$vbl-dark-border};
+  --vbl-border-hover: #{vbl.$vbl-dark-border-hover};
   --vbl-shadow: #{vbl.$vbl-dark-shadow};
+  --vbl-shadow-sm: 0 4px 24px #{vbl.$vbl-dark-shadow};
+  --vbl-shadow-md: 0 8px 32px #{vbl.$vbl-dark-shadow};
+  --vbl-shadow-lg: 0 12px 48px #{vbl.$vbl-dark-shadow};
+  --vbl-shadow-accent: 0 4px 20px rgba(184, 134, 11, 0.35);
+
+  --vbl-label-color: var(--vbl-accent);
+  --vbl-nav-hover-color: var(--vbl-accent);
+
+  --vbl-hero-overlay: linear-gradient(
+    105deg,
+    rgba(26, 26, 26, 0.88) 0%,
+    rgba(26, 26, 26, 0.72) 42%,
+    rgba(184, 134, 11, 0.15) 100%
+  );
+  --vbl-workshop-strip-bg: linear-gradient(135deg, #5c222c 0%, #141414 55%, #1e1e1e 100%);
+  --vbl-workshop-strip-border: rgba(184, 134, 11, 0.35);
+  --vbl-workshop-strip-border-top: 4px solid var(--vbl-accent);
+  --vbl-workshop-strip-glow: radial-gradient(ellipse at 0% 50%, rgba(184, 134, 11, 0.18), transparent 55%);
 
   --bs-body-bg: var(--vbl-bg);
-  --bs-body-color: var(--vbl-text);
-  --bs-primary: #{vbl.$vbl-primary-light};
-  --bs-primary-rgb: 154, 61, 77;
+  --bs-body-color: var(--vbl-text-body);
+  --bs-primary: var(--vbl-primary);
+  --bs-primary-rgb: 184, 134, 11;
   --bs-secondary: var(--vbl-text-muted);
   --bs-border-color: var(--vbl-border);
   --bs-link-color: var(--vbl-accent-light);

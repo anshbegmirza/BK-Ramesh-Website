@@ -1,0 +1,127 @@
+$vbl-trail-ease: cubic-bezier(0.22, 1, 0.36, 1);
+$vbl-trail-speed: 5.5s;
+$vbl-trail-speed-idle: 6s;
+$vbl-trail-lift: -2px;
+$vbl-trail-scale: 1.025;
+
+@mixin trail-gradient {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 292deg,
+    color-mix(in srgb, var(--vbl-accent-light) 70%, transparent) 318deg,
+    var(--vbl-accent) 328deg,
+    transparent 342deg 360deg
+  );
+}
+
+@mixin signature-trail-core {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  z-index: 0;
+  transition:
+    transform 0.5s $vbl-trail-ease,
+    box-shadow 0.5s ease,
+    border-color 0.4s ease,
+    color 0.4s ease,
+    background-color 0.5s ease;
+}
+
+@mixin signature-trail-hover {
+  &:hover {
+    transform: translateY($vbl-trail-lift) scale($vbl-trail-scale);
+    box-shadow: var(--vbl-shadow-accent);
+
+    &::before {
+      opacity: 1;
+      animation-play-state: running;
+      animation-duration: $vbl-trail-speed;
+    }
+  }
+
+  &:active {
+    transform: translateY(0) scale(1.012);
+  }
+}
+
+// Cards — rotating sweep with inner surface mask
+@mixin signature-interactive {
+  @include signature-trail-core;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  &::before {
+    inset: -100%;
+    @include trail-gradient;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.5s ease;
+    animation: vbl-trail-spin $vbl-trail-speed-idle linear infinite;
+    animation-play-state: paused;
+  }
+
+  &::after {
+    inset: 2px;
+    background: var(--vbl-trail-fill, var(--vbl-surface));
+    z-index: 0;
+    transition: background-color 0.5s ease;
+  }
+
+  &:hover {
+    border-color: transparent;
+
+    &::after {
+      background: var(--vbl-trail-fill-hover, var(--vbl-trail-fill, var(--vbl-surface)));
+    }
+  }
+
+  @include signature-trail-hover;
+}
+
+@mixin signature-trail-idle($opacity: 0.3, $speed: 9s) {
+  &::before {
+    opacity: $opacity;
+    animation-play-state: running;
+    animation-duration: $speed;
+  }
+
+  &:hover::before {
+    opacity: 0.85;
+    animation-duration: $vbl-trail-speed;
+  }
+}
+
+@mixin signature-reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &::before {
+      animation: none;
+      inset: 0;
+      background: none;
+      border: 2px solid transparent;
+      transition: border-color 0.2s ease, opacity 0.2s ease;
+    }
+
+    &:hover {
+      transform: none;
+
+      &::before {
+        opacity: 1;
+        border-color: var(--vbl-accent);
+      }
+    }
+  }
+}
+
+@keyframes vbl-trail-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

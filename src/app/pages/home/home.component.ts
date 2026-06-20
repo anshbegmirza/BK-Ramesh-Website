@@ -9,11 +9,21 @@ import { COACHING_SERVICES } from '../../data/services.data';
 import { TESTIMONIALS } from '../../data/testimonials.data';
 import { UPCOMING_WORKSHOPS } from '../../data/workshops.data';
 import { SITE_CONFIG } from '../../data/site.config';
+import { GALLERY_IMAGES } from '../../data/gallery.data';
+import { GalleryShowcaseComponent } from '../../shared/components/gallery-showcase/gallery-showcase.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, DatePipe, TitleCasePipe, NgOptimizedImage, SectionHeadingComponent, ServiceCardComponent],
+  imports: [
+    RouterLink,
+    DatePipe,
+    TitleCasePipe,
+    NgOptimizedImage,
+    SectionHeadingComponent,
+    ServiceCardComponent,
+    GalleryShowcaseComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -25,6 +35,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   services = COACHING_SERVICES.slice(0, 6);
   testimonials = TESTIMONIALS.slice(0, 3);
   upcomingWorkshop = UPCOMING_WORKSHOPS[0];
+  galleryImages = GALLERY_IMAGES;
   activeTestimonial = 0;
 
   ngOnInit() {

@@ -14,10 +14,12 @@
   &__tagline {
     font-size: 0.95rem;
     margin-bottom: 0.25rem;
+    line-height: 1.75;
   }
 
   &__subtitle {
     font-size: 0.85rem;
+    color: var(--vbl-text-muted);
   }
 
   &__heading {
@@ -43,11 +45,24 @@
       font-size: 0.9rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.5rem;
       min-height: 32px;
+      letter-spacing: 0.01em;
+      transition: color 0.2s ease-out;
+
+      i {
+        font-size: 0.95rem;
+        color: var(--vbl-accent);
+        opacity: 0.85;
+        transition: opacity 0.2s ease-out;
+      }
 
       &:hover {
-        color: var(--vbl-primary);
+        color: var(--vbl-nav-hover-color);
+
+        i {
+          opacity: 1;
+        }
       }
     }
   }

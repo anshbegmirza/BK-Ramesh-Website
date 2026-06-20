@@ -1,0 +1,32 @@
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  pointer-events: none;
+
+  &__track {
+    height: var(--vbl-scroll-progress-height, 3px);
+    background: color-mix(in srgb, var(--vbl-accent) 15%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--vbl-accent) 35%, transparent);
+  }
+
+  &__bar {
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      var(--vbl-accent-dark),
+      var(--vbl-accent) 55%,
+      var(--vbl-accent-light)
+    );
+    box-shadow: 0 0 8px color-mix(in srgb, var(--vbl-accent) 55%, transparent);
+    transition: width 0.12s ease-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress__bar {
+    transition: none;
+  }
+}
