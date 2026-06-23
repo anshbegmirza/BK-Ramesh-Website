@@ -21,7 +21,7 @@ export class ContactComponent implements OnInit {
 
   form = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
-    email: ['', [Validators.required, Validators.email]],
+    subject: ['', [Validators.required, Validators.minLength(5)]],
     message: ['', [Validators.required, Validators.minLength(10)]],
   });
 
@@ -30,7 +30,8 @@ export class ContactComponent implements OnInit {
       title: 'Contact & WhatsApp',
       description:
         'Get in touch with BK Ramesh for NLP coaching inquiries. Contact form, WhatsApp, email, and social links.',
-      keywords: 'contact BK Ramesh, WhatsApp coaching, NLP inquiry, life coach contact',
+      keywords:
+        'contact BK Ramesh, WhatsApp coaching, NLP inquiry, life coach contact',
       path: '/contact',
     });
   }
@@ -42,9 +43,26 @@ export class ContactComponent implements OnInit {
       return;
     }
 
-    console.log('Contact form submitted:', this.form.value);
+    const { name, subject, message } = this.form.getRawValue();
+    const whatsappMessage = [
+      'Hello *BK Ramesh*,',
+      '',
+      `*Name:* ${name}`,
+      `*Subject:* ${subject}`,
+      '',
+      '*Message:*',
+      message?.trim() ?? '',
+    ].join('\n');
+    const whatsappUrl = buildWhatsappUrl(whatsappMessage);
+
+    window.open(whatsappUrl, '_blank');
+
     this.submitSuccess = true;
     this.form.reset();
     this.submitted = false;
+
+    setTimeout(() => {
+      this.submitSuccess = false;
+    }, 3000);
   }
 }

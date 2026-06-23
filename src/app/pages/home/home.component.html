@@ -14,8 +14,8 @@
     <h1 class="hero__title">{{ site.tagline }}</h1>
     <p class="hero__subtitle">{{ site.altTagline }}</p>
     <div class="hero__actions">
-      <a routerLink="/register" class="btn vbl-btn-accent">Book a Free Session</a>
-      <a routerLink="/workshops" class="btn vbl-btn-outline vbl-btn-white">Join Next Workshop</a>
+      <a routerLink="/contact" class="btn vbl-btn-accent">Book a Free Session</a>
+      <a routerLink="/workshops" class="btn vbl-btn-outline vbl-btn-white">Explore Workshops</a>
     </div>
   </div>
 </section>
@@ -105,7 +105,7 @@
     <div class="row g-4">
       @for (service of services; track service.id; let i = $index) {
         <div class="col-md-6 col-lg-4">
-          <app-service-card [service]="service" [aosDelay]="i * 120" />
+          <app-service-card [service]="service" [aosDelay]="(i % 3) * 120" />
         </div>
       }
     </div>
@@ -173,7 +173,7 @@
 />
 
 <!-- Upcoming workshop -->
-<section class="vbl-section workshop-cta-section">
+<!-- <section class="vbl-section workshop-cta-section">
   <div class="vbl-container">
     <div class="workshop-strip" data-aos="zoom-in" data-aos-duration="800">
       <div class="workshop-strip__glow" aria-hidden="true"></div>
@@ -200,7 +200,7 @@
       </a>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- CTA -->
 <section class="vbl-section cta-section" data-aos="fade-up">

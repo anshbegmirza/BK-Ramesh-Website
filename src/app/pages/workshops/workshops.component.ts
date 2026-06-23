@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { DatePipe, NgOptimizedImage, TitleCasePipe } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../core/services/seo.service';
 import { SectionHeadingComponent } from '../../shared/components/section-heading/section-heading.component';
@@ -13,9 +13,6 @@ import { CoachingService } from '../../core/models/service.model';
   selector: 'app-workshops',
   standalone: true,
   imports: [
-    RouterLink,
-    DatePipe,
-    TitleCasePipe,
     NgOptimizedImage,
     SectionHeadingComponent,
     ServiceCardComponent,
@@ -27,7 +24,10 @@ export class WorkshopsComponent implements OnInit {
   seo = inject(SeoService);
 
   site = SITE_CONFIG;
-  services = COACHING_SERVICES;
+  services = [
+    ...COACHING_SERVICES.filter((service) => service.featured),
+    ...COACHING_SERVICES.filter((service) => !service.featured),
+  ];
   workshops = UPCOMING_WORKSHOPS;
   expandedId: string | null = null;
 

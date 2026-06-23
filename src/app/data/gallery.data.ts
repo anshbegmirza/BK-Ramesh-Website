@@ -14,7 +14,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     height: 1416,
   },
   {
-    src: '/images/gallery/workshop-02.jpeg',
+    src: '/images/gallery/workshop-19.jpeg',
     alt: '21 Day Personality Development Course — Training for Perfect Women',
     width: 1122,
     height: 1402,
@@ -26,7 +26,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     height: 1600,
   },
   {
-    src: '/images/gallery/workshop-06.jpeg',
+    src: '/images/gallery/workshop-21.jpeg',
     alt: '3 Day Online Workshop — Transform Your Mind, Transform Your Life',
     width: 1024,
     height: 1536,

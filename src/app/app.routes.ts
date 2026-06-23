@@ -22,12 +22,12 @@ export const routes: Routes = [
           import('./pages/workshops/workshops.component').then(m => m.WorkshopsComponent),
         title: 'Workshops',
       },
-      {
-        path: 'register',
-        loadComponent: () =>
-          import('./pages/register/register.component').then(m => m.RegisterComponent),
-        title: 'Register',
-      },
+      // {
+      //   path: 'register',
+      //   loadComponent: () =>
+      //     import('./pages/register/register.component').then(m => m.RegisterComponent),
+      //   title: 'Register',
+      // },
       {
         path: 'testimonials',
         loadComponent: () =>

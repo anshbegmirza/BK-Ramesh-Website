@@ -43,10 +43,10 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: '6',
-    name: 'Suresh P.',
+    name: 'Mahesh K.',
     program: 'Stress & Anxiety Management',
     quote:
       'The anchoring exercises are simple but powerful. I use them daily at work. My stress levels have dropped and I sleep better now.',
-    imageUrl: '/images/testimonials/suresh.jpg',
+    imageUrl: '/images/testimonials/mahesh.jpeg',
   },
 ];

@@ -77,17 +77,17 @@
           </div>
 
           <div class="mb-3">
-            <label for="contact-email" class="form-label">Email *</label>
+            <label for="contact-subject" class="form-label">Subject *</label>
             <input
-              id="contact-email"
-              type="email"
+              id="contact-subject"
+              type="text"
               class="form-control"
-              formControlName="email"
-              [class.is-invalid]="submitted && form.controls.email.invalid"
+              formControlName="subject"
+              [class.is-invalid]="submitted && form.controls.subject.invalid"
               autocomplete="email"
             />
-            @if (submitted && form.controls.email.invalid) {
-              <div class="invalid-feedback">Please enter a valid email address.</div>
+            @if (submitted && form.controls.subject.invalid) {
+              <div class="invalid-feedback">Please enter your subject.</div>
             }
           </div>
 
@@ -111,9 +111,8 @@
     </div>
   </div>
 </section>
-
 <!-- Map placeholder — replace with actual embed when location is confirmed -->
-<section class="vbl-section-alt map-section">
+<!-- <section class="vbl-section-alt map-section">
   <div class="vbl-container">
     <div class="map-placeholder vbl-card" data-aos="fade-up">
       <i class="bi bi-geo-alt map-placeholder__icon" aria-hidden="true"></i>
@@ -122,4 +121,4 @@
       </p>
     </div>
   </div>
-</section>
+</section> -->

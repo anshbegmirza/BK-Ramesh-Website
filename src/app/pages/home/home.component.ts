@@ -1,6 +1,6 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { DatePipe, NgOptimizedImage, TitleCasePipe } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { interval, Subscription } from 'rxjs';
 import { SeoService } from '../../core/services/seo.service';
 import { SectionHeadingComponent } from '../../shared/components/section-heading/section-heading.component';
@@ -17,8 +17,6 @@ import { GalleryShowcaseComponent } from '../../shared/components/gallery-showca
   standalone: true,
   imports: [
     RouterLink,
-    DatePipe,
-    TitleCasePipe,
     NgOptimizedImage,
     SectionHeadingComponent,
     ServiceCardComponent,
@@ -33,7 +31,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   site = SITE_CONFIG;
   services = COACHING_SERVICES.slice(0, 6);
-  testimonials = TESTIMONIALS.slice(0, 3);
+  testimonials = TESTIMONIALS
   upcomingWorkshop = UPCOMING_WORKSHOPS[0];
   galleryImages = GALLERY_IMAGES;
   activeTestimonial = 0;

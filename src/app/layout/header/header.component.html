@@ -46,14 +46,14 @@
         }
       </button>
 
-      <a routerLink="/register" class="site-header__cta d-none d-md-inline-flex" (click)="closeMenu()">
+      <a routerLink="/contact" class="site-header__cta d-none d-md-inline-flex" (click)="closeMenu()">
         <i class="bi bi-calendar-check" aria-hidden="true"></i>
         <span>Book Session</span>
       </a>
 
       <button
         type="button"
-        class="site-header__menu-btn d-lg-none"
+        class="site-header__menu-btn"
         (click)="toggleMenu()"
         [attr.aria-expanded]="menuOpen"
         aria-label="Toggle menu"
