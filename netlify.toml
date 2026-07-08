@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "dist/tranform-your-life/browser"
+  publish = "dist/transform-your-life/browser"
 
 [[redirects]]
   from = "/*"
