@@ -1,13 +1,13 @@
 export const SITE_CONFIG = {
   brandName: 'BK Ramesh — Value Based Living',
   shortName: 'BK Ramesh',
-  domain: 'https://transformyourlife.com',
+  domain: 'https://bkrameshnlp.com',
   tagline: 'Transform Your Mind, Transform Your Life',
   altTagline: 'Change Your Self-Image & Unlock Your Real Potential',
   subtitle: 'NLP & Life Coaching by BK Ramesh',
   whatsappNumber: '919602625038',
   whatsappDefaultMessage: 'Hello BK Ramesh, I would like to know more about your coaching programs.',
-  email: 'contact@transformyourlife.com',
+  email: 'rameshanandwani.abr@gmail.com',
   phone: '+91 96026 25038',
   location: 'India',
   social: {
@@ -24,6 +24,12 @@ export const SITE_CONFIG = {
     logo: '/images/bk-ramesh-logo-2.png',
     favicon: '/images/image-bk-ramesh-logo.png',
   },
+  videos: [
+    {
+      url: 'https://youtube.com/shorts/FxrH387gYIg?si=TxeBpmaf7pfJeMaP',
+      title: 'Transform Your Mind with NLP',
+    },
+  ],
   formEndpoint: '',
 } as const;
 

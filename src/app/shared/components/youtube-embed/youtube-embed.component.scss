@@ -1,0 +1,44 @@
+@use "../../../../theme/theme-variables" as vbl;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.youtube-embed {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--vbl-radius-md);
+  overflow: hidden;
+  background: #000;
+  box-shadow: var(--vbl-shadow-md);
+  border: 1px solid var(--vbl-border);
+
+  &--short {
+    aspect-ratio: 9 / 16;
+    width: min(100%, 360px);
+    margin-inline: auto;
+
+    @media (min-width: vbl.$vbl-breakpoint-sm) {
+      width: min(100%, 320px);
+    }
+
+    @media (min-width: vbl.$vbl-breakpoint-md) {
+      width: min(100%, 360px);
+    }
+
+    @media (min-width: vbl.$vbl-breakpoint-lg) {
+      width: min(100%, 400px);
+    }
+  }
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}

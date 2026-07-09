@@ -68,6 +68,25 @@
   </div>
 </section>
 
+<!-- Featured videos -->
+<section class="vbl-section video-section" data-aos="fade-up">
+  <div class="vbl-container">
+    <app-section-heading
+      title="Watch & Learn"
+      subtitle="See NLP coaching in action — real insights to inspire your transformation."
+      [centered]="true"
+    />
+    <div class="video-section__grid">
+      @for (video of site.videos; track video.url) {
+        <article class="video-section__item" data-aos="fade-up">
+          <app-youtube-embed [url]="video.url" [title]="video.title" />
+          <p class="video-section__caption">{{ video.title }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
 <!-- NLP Coaching spotlight -->
 <section class="vbl-section vbl-section-alt" data-aos="fade-up">
   <div class="vbl-container">

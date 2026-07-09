@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://transformyourlife.com/sitemap.xml
+Sitemap: https://bkrameshnlp.com/sitemap.xml

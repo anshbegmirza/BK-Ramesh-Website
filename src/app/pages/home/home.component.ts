@@ -11,6 +11,7 @@ import { UPCOMING_WORKSHOPS } from '../../data/workshops.data';
 import { SITE_CONFIG } from '../../data/site.config';
 import { GALLERY_IMAGES } from '../../data/gallery.data';
 import { GalleryShowcaseComponent } from '../../shared/components/gallery-showcase/gallery-showcase.component';
+import { YoutubeEmbedComponent } from '../../shared/components/youtube-embed/youtube-embed.component';
 
 @Component({
   selector: 'app-home',
@@ -21,6 +22,7 @@ import { GalleryShowcaseComponent } from '../../shared/components/gallery-showca
     SectionHeadingComponent,
     ServiceCardComponent,
     GalleryShowcaseComponent,
+    YoutubeEmbedComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
