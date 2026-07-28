@@ -29,6 +29,10 @@ export const SITE_CONFIG = {
       url: 'https://youtube.com/shorts/FxrH387gYIg?si=TxeBpmaf7pfJeMaP',
       title: 'Transform Your Mind with NLP',
     },
+    {
+      url: 'https://youtube.com/shorts/v3FcQYsvHV8?si=ImUQfuhwewkseh2m',
+      title: 'Change your mind | Learn about Self Image & Personality Building'
+    }
   ],
   formEndpoint: '',
 } as const;

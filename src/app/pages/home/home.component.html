@@ -77,9 +77,13 @@
       [centered]="true"
     />
     <div class="video-section__grid">
-      @for (video of site.videos; track video.url) {
+      @for (video of site.videos; track video.url; let first = $first) {
         <article class="video-section__item" data-aos="fade-up">
-          <app-youtube-embed [url]="video.url" [title]="video.title" />
+          <app-youtube-embed
+            [url]="video.url"
+            [title]="video.title"
+            [autoplay]="first"
+          />
           <p class="video-section__caption">{{ video.title }}</p>
         </article>
       }
